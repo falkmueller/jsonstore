@@ -101,4 +101,4 @@ Response:
 - string contains a part
   - ```GET /list1?filter[0][field]=name&filter[0][op]=contains&filter[0][value]=es```
 - array contains value
-  - GET /list1?filter[0][field]=hobbies&filter[0][op]=contains&filter[0][value]=tennis
+  - ```GET /list1?filter[0][field]=hobbies&filter[0][op]=contains&filter[0][value]=tennis```
