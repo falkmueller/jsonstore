@@ -1,0 +1,16 @@
+<ifModule mod_rewrite.c>
+    RewriteEngine On
+    #RewriteCond %{HTTPS} off
+    #RewriteCond %{HTTP_HOST} !^localhost
+    #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    RewriteRule .* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    #if not "public", then rewrite to index.php
+    RewriteRule ^(.*) index.php [L]
+</ifModule>
+
+<ifModule mod_php5.c>
+    # Fix $HTTP_RAW_POST_DATA deprecated warning
+    php_value always_populate_raw_post_data -1
+</ifModule>
